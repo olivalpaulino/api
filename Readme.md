@@ -18,3 +18,4 @@ Atualmente, o projeto possui 4 pacotes, sendo, o principal, controller, model e 
 ## Observação
 
 É necessário criar o banco de dados chamado "api_spring". Apenas a criação do banco e necessária. Assim, ao inicializar o projeto Spring Boot, será adicionada as tabelas que são mapeadas no pacote model. Para este projeto, estou usando o sgdb MySQL.
+Para testar, após executar a aplicação Spring Boot, basta acessar http://localhost:8080 e testar as possíveis rotas cadastradas na classe Controller.
