@@ -3,6 +3,9 @@ package br.com.projeto.api.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
 import br.com.projeto.api.repository.Repository;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -81,6 +84,11 @@ public class Controller {
 	@GetMapping("api/idademaiorigual")
 	public List<Pessoa> idadeMaiorIgual() {
 		return acao.idadeMaiorIgual(18);
+	}
+	
+	@GetMapping("/status")
+	public ResponseEntity<?> status() {
+		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	
 	@GetMapping("api/somaidades")
