@@ -78,6 +78,11 @@ public class Controller {
 		return acao.findByNomeEndsWith("a");
 	}
 	
+	@GetMapping("api/idademaiorigual")
+	public List<Pessoa> idadeMaiorIgual() {
+		return acao.idadeMaiorIgual(18);
+	}
+	
 	@GetMapping("api/somaidades")
 	public int somaIdades() {
 		return acao.somaIdades();
