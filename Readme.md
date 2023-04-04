@@ -13,7 +13,7 @@ Abra a IDE de sua preferência que já possui a integração com o Spring Boot, 
 
 ## Descrição do Projeto
 
-Atualmente, o projeto possui 4 pacotes, sendo, o principal, controller, model e repository, onde o pacote controller possui as rotas, o model possui a entidade que mapeia a classe java para a tabela do banco de dados MySQL, o repository que é responsável pelas pesquisas de dados no banco de dados, através de uma interface e o principal, que inicializa a aplicação.
+Atualmente, o projeto possui 5 pacotes, sendo, o principal, controller, model, repository e service, onde o pacote controller possui as rotas, o model possui a entidade que mapeia a classe java para a tabela do banco de dados MySQL, o repository que é responsável pelas pesquisas de dados no banco de dados, através de uma interface e o principal, que inicializa a aplicação.
 
 ## Observação
 
