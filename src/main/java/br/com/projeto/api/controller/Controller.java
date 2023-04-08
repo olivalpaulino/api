@@ -2,6 +2,8 @@ package br.com.projeto.api.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.projeto.api.model.Cliente;
 import br.com.projeto.api.model.Pessoa;
 
 @RestController
@@ -118,5 +121,10 @@ public class Controller {
 		System.out.println(pessoa.getNome());
 		System.out.println(pessoa.getIdade());
 		return pessoa;
+	}
+	
+	@PostMapping("/cliente")
+	public Cliente cliente(@Valid @RequestBody Cliente cliente) {
+		return acao.save(cliente);
 	}
 }

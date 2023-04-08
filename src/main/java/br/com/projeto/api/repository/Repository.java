@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
+import br.com.projeto.api.model.Cliente;
 import br.com.projeto.api.model.Pessoa;
 
 @org.springframework.stereotype.Repository
@@ -31,4 +32,6 @@ public interface Repository extends CrudRepository<Pessoa, Integer>{
 	List<Pessoa> idadeMaiorIgual(int idade);
 	
 	int countByCodigo(int codigo); // ajuda a verificar se tem ou nao cadastro
+	
+	Cliente save(Cliente cliente);
 }

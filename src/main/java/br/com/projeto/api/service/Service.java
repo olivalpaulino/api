@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import br.com.projeto.api.model.Cliente;
 import br.com.projeto.api.model.Mensagem;
 import br.com.projeto.api.model.Pessoa;
 import br.com.projeto.api.repository.Repository;
@@ -19,7 +20,7 @@ public class Service {
 	@Autowired
 	private Repository acao;
 	
-	// metodo cadastrar
+	// metodo cadastrar pessoa
 	public ResponseEntity<?> cadastrar(Pessoa pessoa) {
 		if (pessoa.getNome().equals("")) {
 			mensagem.setMensagem("O campo nome precisa ser preenchido");
@@ -29,6 +30,18 @@ public class Service {
 			return new ResponseEntity<>(mensagem, HttpStatus.BAD_REQUEST);
 		} else {
 			return new ResponseEntity<>(acao.save(pessoa), HttpStatus.CREATED);
+		}
+	}
+	
+	public ResponseEntity<?> cadastrar(Cliente cliente) {
+		if (cliente.getNome().equals("")) {
+			mensagem.setMensagem("O campo nome precisa ser preenchido");
+			return new ResponseEntity<>(mensagem, HttpStatus.BAD_REQUEST);
+		} else if (cliente.getEmail().equals("Informe um e-maill válido!")) {
+			mensagem.setMensagem("Informe uma idade válida!");
+			return new ResponseEntity<>(mensagem, HttpStatus.BAD_REQUEST);
+		} else {
+			return new ResponseEntity<>(acao.save(cliente), HttpStatus.CREATED);
 		}
 	}
 	
