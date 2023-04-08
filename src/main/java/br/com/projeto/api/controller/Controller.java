@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import br.com.projeto.api.repository.Repository;
+import br.com.projeto.api.service.Service;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,31 +25,32 @@ public class Controller {
 	@Autowired
 	private Repository acao;
 	
+	@Autowired
+	private Service servico;
+	
 	@PostMapping("/api")
-	public Pessoa cadastrar(@RequestBody Pessoa pessoa) {
-		return acao.save(pessoa);
+	public ResponseEntity<?> cadastrar(@RequestBody Pessoa pessoa) {
+		return servico.cadastrar(pessoa);
 	}
 	
 	@GetMapping("/api")
-	public List<Pessoa> selecionar() {
-		return acao.findAll();
+	public ResponseEntity<?> selecionar() {
+		return servico.selecionar();
 	}
 	
 	@GetMapping("/api/{codigo}")
-	public Pessoa selecionarPeloCodigo(@PathVariable int codigo) {
-		return acao.findByCodigo(codigo);
+	public ResponseEntity<?> selecionarPeloCodigo(@PathVariable int codigo) {
+		return servico.selecionarPeloCodigo(codigo);
 	}
 	
 	@PutMapping("/api")
-	public Pessoa editar(@RequestBody Pessoa pessoa) {
-		return acao.save(pessoa);
+	public ResponseEntity<?> editar(@RequestBody Pessoa pessoa) {
+		return servico.editar(pessoa);
 	}
 	
 	@DeleteMapping("/api/{codigo}")
-	public void remover(@PathVariable int codigo) {
-		Pessoa obj = selecionarPeloCodigo(codigo);
-		
-		acao.delete(obj);
+	public ResponseEntity<?> remover(@PathVariable int codigo) {
+		return servico.remover(codigo);
 	}
 	
 	@GetMapping("/api/contador")
